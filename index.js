@@ -3,12 +3,11 @@ const utils = require('./lib/utils');
 
 (async () => {
 
-  const file = utils.getProjectFilePathList();
+  const fileList = utils.getProjectFilePathList();
 
-  const projects = await utils.fetch(file, {
+  const projects = await utils.fetch(fileList, {
     transform: utils.parseProjects,
   });
-
 
   const matchedProjects = utils.inputMatchesData(
     projects,
